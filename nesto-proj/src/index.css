@@ -1,0 +1,50 @@
+   @import "tailwindcss/base";
+   @import "tailwindcss/components";
+   @import "tailwindcss/utilities";
+
+
+   body {
+    color: #212121 !important;
+    font-family: "Inter, sans-serif" !important;
+   }
+
+   .ColorOrange{
+    color: #FF6D00 !important;
+   }
+
+    .ColorPeach{
+    color: #FFE0B2;
+   }
+
+   .bgPeach{
+    background-color: #FFE0B2 !important;
+   }
+
+   .bgOrange{
+    background: #FF6D00 !important;
+   }
+
+   .weight900{
+    font-weight: 900
+   }
+
+   .borderOrange{
+    border: 2px solid #FF6D00 !important
+   }
+
+   .borderOrange:hover{
+    background: #FF6D00 !important;
+    color: white !important;
+   }
+   
+
+   .hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+ 
+
+   code {
+     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+       monospace;
+   }
