@@ -12,6 +12,9 @@ import LoginComp from './pages/login/loginComp';
 import Products from './pages/products/productComp';
 import Landing from './pages/landing/landing';
 import ProductDetails from './pages/productDetails/productDetails';
+import BookingSummary from './pages/bookingSummary/bookingSummary';
+import PaymentSummary from './pages/bookingSummary/paymentSummary';
+import Confirmation from './pages/confirmation/confirmation';
 
 let router = createBrowserRouter([
   {
@@ -29,6 +32,18 @@ let router = createBrowserRouter([
   {
     path: "/productdetails",
     element: <ProductDetails /> 
+  },
+  {
+    path: "/bookingSummary",
+    element: <BookingSummary /> 
+  },
+  {
+    path: "/paymentSummary",
+    element: <PaymentSummary /> 
+  },
+  {
+    path: "/confirmation",
+    element: <Confirmation /> 
   }
 ]);
 
