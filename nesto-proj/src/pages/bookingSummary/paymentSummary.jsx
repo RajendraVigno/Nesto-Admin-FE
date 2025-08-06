@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PaymentSummary = () => {
+    const navigate = useNavigate()
     return (
         <div>
             <div className="border border-2 static ...">
@@ -50,7 +52,7 @@ const PaymentSummary = () => {
                                 <p>
                                     we will confirm your stay without any charge.pay directly ar the hotelduring your stay
                                 </p>
-                                  <button type="button" class="borderOrange h-[3rem] py-2.5 px-5 me-2 mb-2 text-sm font-medium rounded-lg text-gray-900  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Boook Now</button>
+                                  <button onClick={()=>navigate("/confirmation")} type="button" class="borderOrange h-[3rem] py-2.5 px-5 me-2 mb-2 text-sm font-medium rounded-lg text-gray-900  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Boook Now</button>
                             </div>
                         </div>
                     </div>

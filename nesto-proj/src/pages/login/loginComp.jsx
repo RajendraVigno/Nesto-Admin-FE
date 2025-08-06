@@ -3,8 +3,10 @@ import { useFormik } from 'formik';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const LoginComp = () => {
+  const navigate = useNavigate()
   const formik = useFormik({
     initialValues: {
       mobileNumber: ''
@@ -31,15 +33,15 @@ const LoginComp = () => {
         
         <div class=" p-5 align-items-center d-flex">
           <div className="" style={{ width: "500px" }}>
-            <h2 class="text-white" style={{fontSize: "50px"}}>There’s a smarter way to OYO around</h2>
-            <p class="text-white">Sign up with your phone number and get exclusive access to discounts and savings on OYO stays and with our many travel partners.</p>
+            <h2 class="text-white" style={{fontSize: "50px"}}>There’s a smarter way to NESTO's around</h2>
+            <p class="text-white">Sign up with your phone number and get exclusive access to discounts and savings on NESTO stays and with our many travel partners.</p>
           </div>
         </div>
 
         <div class=" bg-white" style={{width: "450px", borderRadius:"10px"}}>
-          <div class="p-1 ps-4 align-item-center flex bgPeach">
+          <div class="p-1 ps-4 flex bgPeach">
             <FontAwesomeIcon icon={faGear}/>
-            <p>Sign up & Get ₹500 OYO Money</p>
+            <p>Sign up & Get ₹500 NESTO Money</p>
           </div>
           <div className=" d-flex flex-column p-4 gap-3 ">
             <h1>Login / Signup</h1>
@@ -57,7 +59,7 @@ const LoginComp = () => {
               </div>
               <input type="text" class="form-control" aria-label="Text input with dropdown button" />
             </div>
-            <button type="button" class="bgPeach  btn w-50">Verify Number</button>
+            <button onClick= {()=>navigate("/products")} type="button" class="bgPeach  btn w-50">Verify Number</button>
             <p>Prefer to Sign in with password instead?<span><a href="" class="ColorOrange">Click here</a></span></p>
           </div>
         </div>
@@ -74,6 +76,6 @@ const Background = styled.div`
   background-image: url("https://plus.unsplash.com/premium_photo-1663126637580-ff22a73f9bfc?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBiZWRyb29tfGVufDB8fDB8fHww");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100%;
   font-family: "Inter, sans-serif" !important
 `;

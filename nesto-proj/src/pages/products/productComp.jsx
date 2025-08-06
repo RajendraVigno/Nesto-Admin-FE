@@ -1,21 +1,28 @@
-import { Button } from "@mui/material"
+import { Button, colors, TextField } from "@mui/material"
 import FilterComp from "./filterComp"
 import data from "../../mockData/products.json"
 import Header from "../header/header"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGear } from "@fortawesome/free-solid-svg-icons"
+import styled from 'styled-components';
+import { useNavigate } from "react-router";
+import { useState } from "react";
+
 
 
 const Products = () => {
+  const navigate = useNavigate()
+  const [trimToggle, setTrimToggle] = useState(false)
+
   console.log(data)
 
+
+
   const Categories = [{
-    heading: "Categories",
-    title: ["Family Nestos", "Your friendly neighood stay",]
+    heading: "Suggested for you",
+    title: ["Rush deal", "Last minut deals", "5 star", "North Goa"]
   }]
   const collections = [{
-    heading: "Collections",
-    title: ["Family Nestos", "Your friendly neighood RoomService", "For group travelrer", "Local ids accepted", "nestos well come couples",]
+    heading: "Price per night",
+    title: ["₹ 0 - ₹ 1500", "₹ 1500 - ₹ 3000", "₹ 3000 - ₹ 6500", "₹ 6500 - ₹ 10000", "₹ 10000 - ₹ 15000",]
   }]
   const hotelFacility = [{
     heading: "HotelFacility",
@@ -32,30 +39,22 @@ const Products = () => {
   }]
 
   return (
-    <div style={{fontFamily: "Inter, sans-serif"}}>
+    <div style={{ fontFamily: "Inter, sans-serif" }}>
       {/* head section */}
       <Header />
       {/* body section */}
-      <section className="flex">
+      <section className="flex bgAsh">
 
         {/* left side  */}
-        <aside className="border w-[25%] hide-scrollbar m-2 p-2" style={{height: "60rem", overflow: "auto"}}> 
-          <div className="ml-[2rem]">
-            <div className="flex justify-between p-2">
-              <h2>Filters</h2>
-              <p className="ColorOrange text-[red]">Clear all</p>
+        <aside className="bgWhite w-[20%] hide-scrollbar p-2 ml-[5rem] mt-[1rem] mr-[1px]" style={{ height: "60rem", overflow: "auto" }}>
+          <Background>
+            <div>
+              <div className="flex">
+                <button type="button" class="borderOrange fontWait900 bgWhite fontSize12  p-2 w-full h-[2rem] py-1  px-5 me-2 mb-2  text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">EXPLORE ON MAP</button>
+              </div>
             </div>
-            <p>Popular locations in Hyderabad, Telangana, India</p>
-
-          </div>
-
-          <div class="relative mb-6 flex justify-center">
-            <label for="labels-range-input" class="sr-only">Labels range</label>
-            <input id="labels-range-input" type="range" value="1000" min="100" max="1500" class="w-[15rem]  h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
-            <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-10 -bottom-6">Min ($100)</span>
-            <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-10 -bottom-6">Max ($1500)</span>
-          </div>
-          <hr />
+          </Background>
+          <div className="" style={{marginBottom:"1rem"}}><TextField style={{height:"3rem"}} id="outlined-basic" label="search for locality/hotel name" variant="outlined" className="w-full" /></div>
           <FilterComp det={collections} />
           <FilterComp det={Categories} />
           <FilterComp det={hotelFacility} />
@@ -66,114 +65,91 @@ const Products = () => {
 
 
         {/* right side */}
-        <section className="border w-[75%] hide-scrollbar " style={{height: "60rem", overflow: "auto"}}>
-          <div>
-            {/* top */}
-            <div className="flex">
-              <div className="w-1/2 py-3">
-                <h3 className="ml-2">54 NESTOs in Around me</h3>
-              </div>
-              <div className="flex w-1/4 justify-evenly items-start py-3">
-                <p>Map View</p>
-                <label class="inline-flex items-center cursor-pointer">
-                  <input type="checkbox" value="" class="sr-only peer"  />
-                  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
-                </label>
-              </div>
-              <div className="flex w-1/4 justify-evenly items-start py-3">
-                <p>Sort By</p>
-                <form class="max-w-sm">
-                  <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Popularity</option>
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
-                  </select>
-                </form>
+        <section className=" w-[80%] hide-scrollbar p-2 mt-[1rem] mr-[5rem]" style={{ height: "60rem", overflow: "auto" }}>
+          <div className="">
+            <div>
+              <div className="fontSize12"><span>Home > Hotels more in Goa</span></div>
+              <div className=" py-3 flex">
+                <h3 className="ml-2 mr-3 fontSize24">3128 Properties in Goa  </h3>
+                <button type="button" class="borderOrange bgWhite align-center h-[2rem]  px-5 me-2 mb-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Explore travel tips-></button>
               </div>
             </div>
-            {/* offer */}
-            <div className="border w-[30%]">
-              <p className="ml-2">Up to 80% off. Valid untill31st December 2025.</p>
+            <div className="flex bgWhite justify-around items-center mb-3 py-2 ">
+              <div className="flex items-center justify-between  fontWait900">
+                <span>SORT BY</span>
+                <button type="button" class="borderOrange bgWhite align-center  px-2 me-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Popular</button>
+              </div>
+              <div><span className="fontWait900">User Rating </span><span>(Highest first)</span></div>
+              <div><span className="fontWait900">Price</span> <span>(Highest first)</span></div>
+              <div><span className="fontWait900">Price</span> <span>(lowest first)</span></div>
             </div>
-          </div>
 
-          {/* card */}
-          {data?.map((detaisl, ind) => {
-            console.log(detaisl)
-            return <>
-              <div className="flex m-2">
-                <div id="carouselExampleControls" style={{ overflow: "hidden" }} class="carousel slide  w-50" data-ride="carousel">
-                  <div class="carousel-inner h-30">
-                    <div class="carousel-item active">
-                      <img class="d-block w-100" src={detaisl.best_image} />
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?cs=srgb&dl=architecture-building-chairs-2034335.jpg&fm=jpg" alt="Second slide" />
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?cs=srgb&dl=architecture-building-chairs-2034335.jpg&fm=jpg" alt="Third slide" />
-                    </div>
+            {data.map((details)=>{
+              console.log(details)
+              return <div className="flex border-2 bgWhite mb-3 cardHover">
+              <div id="carouselExampleControls" class="carousel slide w-25 h-25 m-2 p-2" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" onClick= {()=>navigate("/productDetails")}>
+                    <img src={details.best_image} class="d-block w-100" alt="..." style={{height: "12rem"}}/>
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
+                  {/* <div class="carousel-item">
+                    <img src="https://play-lh.googleusercontent.com/R3oQgp4euQlsXUDaYuMes3K8JGtifoD-wrvHkq6q0xTYcROLiuYPqz3OBTZVWlrTq_k" class="d-block w-100" alt="..." />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://cdn.pixabay.com/photo/2023/02/24/07/40/spiderman-7810368_1280.png" class="d-block w-100" alt="..." />
+                  </div> */}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+
+                <div className="flex mt-2 spacing-1"> 
+                  <div><img src={details.hotel_images[0].url} class="d-block w-100" alt="..." /></div>
+                  <div><img src={details.hotel_images[1].url} class="d-block w-100" alt="..." /></div>
+                  <div><img src={details.hotel_images[2].url} class="d-block w-100" alt="..." /></div>
+                  <div><img src={details.hotel_images[3].url} class="d-block w-100" alt="..." /></div>
+                </div>
+                
+              </div>
+ 
+              <div className="m-2 p-2 w-50">
+                <div>
+                  <p className={trimToggle ? "fontSize24": "trimText fontSize24"} onClick= {()=>navigate("/productDetails")}>{details.alternate_name} </p>
+                <button className="ColorOrange" onClick={()=>setTrimToggle(!trimToggle)}>{ trimToggle ? "Read less..." : "Read more..."}</button>
+                </div>
+                
+                <h3>*****</h3>
+                <p><a href="">Colaungut</a>1.8 km drive to Calangute Beach</p>
+                <button type="button" class="borderOrange bgWhite align-center h-[2rem]  px-3 me-2 mb-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Couple friendly</button>
+                <p className="fontSize12">Ideal spot near Calangute beach, Great breakfast buffet with live music, Cozy wooden cottages</p>
+              </div>
+
+              <div className="m-2 p-3 alignEnd">
+                <div>
+                  <h6 className="fontWait900 ColorOrange" style={{lineHeight: "0rem"}}>Very Good 4.0</h6>
+                  <p>(7782 Ratings)</p>
                 </div>
                 <div>
-                  <div class="">
-                    <img class="w-20 h-20" style={{ height: "4rem", margin: "4px" }} src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?cs=srgb&dl=architecture-building-chairs-2034335.jpg&fm=jpg" alt="First slide" />
-                  </div>
-                  <div class="">
-                    <img class="w-20 h-20" style={{ height: "4rem", margin: "4px" }} src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?cs=srgb&dl=architecture-building-chairs-2034335.jpg&fm=jpg" alt="First slide" />
-                  </div>
-                  <div class="">
-                    <img class="w-20 h-20" style={{ height: "4rem", margin: "4px" }} src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?cs=srgb&dl=architecture-building-chairs-2034335.jpg&fm=jpg" alt="First slide" />
-                  </div>
-                  <div class="">
-                    <img class="w-20 h-20" style={{ height: "4rem", margin: "4px" }} src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?cs=srgb&dl=architecture-building-chairs-2034335.jpg&fm=jpg" alt="First slide" />
-                  </div>
+                  <p style={{lineHeight: "0rem"}}><del>5,066</del></p>
+                  <h5 style={{lineHeight: "0rem"}}>2615</h5>
+                  <p className="fontSize12">+ ₹ 628 taxes & fees</p>
+                  <p className="fontSize12">Per Night</p>
                 </div>
                 <div>
-                  <div className="ml-3">
-                    <div className="flex">
-                      <div className="w-[22rem]">
-                        <h6>{detaisl.name}</h6>
-                        <p>{detaisl.address}</p>
-                      </div>
-                      <div class="w-[10rem]">
-                        <p style={{ fontSize: "small", color: "#ff6d00" }}>18 people booked this hotel in last 6 hours</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p>(21 Ratings)·Excellent</p>
-                      <p className="flex justify-content-between">
-                        <span >parking facity</span>
-                        <span>divin area</span>
-                        <span>free wifi</span>
-                        <span>+12 more</span>
-                      </p>
-                    </div>
-                    <div className="flex">
-                      <div>
-                        <h3>1933</h3><span>+ ₹285 taxes & fees · per room per night</span>
-                      </div>
-                      <div className="flex items-end">
-                        <button type="button" class="borderOrange h-[3rem] py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">ViewDetails</button>
-                        <button type="button" class="borderOrange h-[3rem] focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">BookNow</button>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="fontSize12 ColorOrange" onClick={()=>navigate("/login")}>Login to Book Now & Pay Later!</p>
+                </div>
+                <div>
+                  <button  onClick={()=>navigate("/productDetails")} type="button" class="borderOrange bgWhite align-center h-[2rem]  px-3 me-2 mb-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">More Details</button>
                 </div>
               </div>
-              <hr />
-            </>
-          })}
+            </div>
+            })}
+          </div>
         </section>
       </section>
     </div>
@@ -181,4 +157,15 @@ const Products = () => {
 }
 
 export default Products
+
+const Background = styled.div`
+  background-image: url("https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/mapEntryHover.png");
+  background-size: cover;
+  background-position: center;
+  height: 8rem;
+  font-family: "Inter, sans-serif" !important;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center
+`;
 

@@ -2,10 +2,12 @@ import { faCircleExclamation, faLocationDot } from "@fortawesome/free-solid-svg-
 import Header from "../header/header"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSquareCheck } from "@fortawesome/free-regular-svg-icons"
+import { useNavigate } from "react-router-dom"
 
 const ProductDetails = () => {
+    const navigate = useNavigate()
     return (
-        <div>
+        <div style={{ fontFamily: "Inter, sans-serif" }}>
             <Header />
             <div id="carouselExample" style={{ overflow: "hidden" }} class="carousel slide">
                 <div class="carousel-inner">
@@ -33,8 +35,8 @@ const ProductDetails = () => {
                 <aside className="w-[60%] hide-scrollbar m-2 p-2" style={{height: "50rem", overflow: "auto"}}>
                     <div className="flex justify-around">
                         <div>
-                            <h1>Hotel O Ss Delight</h1>
-                            <p>Srivari Plaza, Aphb Colony, Moula-ali, Meerpet, Hyderabad <br />5.0·Check-in rating Delightful experience</p>
+                            <h3 className="fontSize24">Hotel O Ss Delight</h3>
+                            <p className="">Srivari Plaza, Aphb Colony, Moula-ali, Meerpet, Hyderabad <br />5.0·Check-in rating Delightful experience</p>
                         </div>
                         <div className="">
                             <h4 className="bgPeach" style={{width: "5rem", borderRadius: "2rem", textAlign: "center"}}>3.8*</h4>
@@ -42,7 +44,7 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     <div className="ml-[5rem]">
-                        <h5>Amenities</h5>
+                        <p className="fontWait900">Amenities</p>
                         <div className="flex justify-between w-[15rem] flex-wrap">
                             <p>Cot</p>
                             <p>AC</p>
@@ -54,12 +56,12 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     <div className="ml-[5rem] mb-[4rem]">
-                        <h5>Choose your room</h5>
+                        <p className="fontWait900">Choose your room</p>
                         <div className="border-2">
-                            <p className="bg-gray-300">SELECTED CATEGORY</p>
+                            <p className="bg-gray-300 fontWait900">SELECTED CATEGORY</p>
                             <div className="flex justify-between ml-3">
                                 <div className="w-[60%]">
-                                    <h3>CLASSIC</h3>
+                                    <p className="fontWait900">CLASSIC</p>
                                     <p>Room Size: 14sqr feet</p>
                                     <div className="flex justify-between">
                                         <p>Free Wifi</p>
@@ -91,7 +93,7 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     <div>
-                        <h5 className="ml-[5rem]">Ratings and reviews</h5>
+                        <h5 className="ml-[5rem] fontWait900">Ratings and reviews</h5>
                         <div className="flex ml-[5rem]">
                             <div className="w-[40%] border-2 flex justify-center">
                                 <div>
@@ -144,9 +146,9 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     <div className="ml-[5rem] mb-[4rem]">
-                        <h4>See all reviews</h4>
+                        <p className="fontWait900">See all reviews</p>
                         <div>
-                            <h4>Hotel policies</h4>
+                            <p className="fontWait900">Hotel policies</p>
                             <div className="flex flex-1">
                                 <div>
                                     checkin
@@ -178,11 +180,11 @@ const ProductDetails = () => {
                     <div className=" ml-[3rem]">
                         <div className="flex">
                             <FontAwesomeIcon icon={faLocationDot} />
-                        <h2>What's nearBy?</h2>
+                        <h2 className="fontWait900">What's nearBy?</h2>
                         </div>
                         <div className="border-3">
                             <div className="ml-3 p-2">
-                                <h6>Hotel o Ss Delight</h6>
+                                <p className="fontWait900">Hotel o Ss Delight</p>
                                 <input type="search" id="default-search" class=" h-[1rem] w-50 block w-half p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
                             </div>
                             <div className="flex justify-evenly">
@@ -220,9 +222,9 @@ const ProductDetails = () => {
                         <div className="bgOrange color-white-300 flex justify-around py-2">
                             <div className="flex">
                                 <FontAwesomeIcon icon={faCircleExclamation}/> 
-                            <p>LOG IN TO BOOK AT 756 + TAXES 179</p>
+                                <p>LOG IN TO BOOK AT 756 + TAXES 179</p>
                             </div>
-                            <button className="bgPeach" style={{width: "5rem", borderRadius: "2rem"}}>LOGIN</button>
+                            <button onClick={()=>navigate("/login")} className="bgPeach" style={{width: "5rem", borderRadius: "2rem"}}>LOGIN</button>
                         </div>
                         <div className="ml-5">
                             <div className="flex py-2 ml-5">
@@ -233,8 +235,8 @@ const ProductDetails = () => {
                         </div>
                         <div>
                             <div className=" p-4 m-4 h-[4rem] inset-shadow-sm flex flex-1 border-2 border-solid justify-center py-3">
-                                <p className="pe-6">Wed, 19 JUL - Thu, 20 JUL</p>
-                                <p className="" >1 Room, 1 Guest</p>
+                                <p className="pe-6 fontSize12 fontWait900">Wed, 19 JUL - Thu, 20 JUL</p>
+                                <p className="fontSize12 fontWait900" >1 Room, 1 Guest</p>
                             </div>
                             <div className=" flex p-4 m-4 h-[4rem] inset-shadow-sm border-2 border-solid justify-center py-3">
                                 <p className="">CLASSIC</p>
@@ -265,10 +267,10 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         <div className="flex w-100 justify-center">
-                            <button type="button" class="w-50 text-white bgOrange hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Continue to Book</button>
+                            <button onClick={()=>navigate("/bookingSummary")} type="button" class="w-50 text-white bgOrange hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Continue to Book</button>
                         </div>
                         <div className="p-2 ml-[1.5rem]">
-                            <p>700+ people booked this OYO in last 6 months Cancellation Policy</p>
+                            <p>700+ people booked this NESTO in last 6 months Cancellation Policy</p>
                             <p>Follow safety measures advised at the hotel By proceeding, you agree to our Guest Policies.</p>
                         </div>
                     </div>

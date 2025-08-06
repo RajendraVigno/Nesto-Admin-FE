@@ -101,7 +101,7 @@ const Confirmation = () => {
                         <div className='w-50'>
                             <p>Something not right? <span className='ColorOrange'>Chat with us</span> for help. </p>
                             <p className='ColorOrange'>Cancel Booking</p>
-                            <p className='ColorOrange'>Read OYO's Terms and Condition</p>
+                            <p className='ColorOrange'>Read NESTO's Terms and Condition</p>
                         </div>
                     </div>
                 </div>
