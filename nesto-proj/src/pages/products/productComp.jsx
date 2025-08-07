@@ -40,119 +40,197 @@ const Products = () => {
 
   return (
     <div style={{ fontFamily: "Inter, sans-serif" }}>
-      {/* head section */}
-      <Header />
-      {/* body section */}
-      <section className="flex bgAsh">
+  {/* head section */}
+  <Header />
+  {/* body section */}
+  <section className="flex flex-col md:flex-row bgAsh min-h-screen">
+    
+    {/* left side */}
+    <aside 
+      className="bgWhite md:w-1/4 w-full hide-scrollbar p-4 md:ml-20 mt-4 md:mt-4 md:mr-1 overflow-auto"
+      style={{ maxHeight: "60rem" }}
+    >
+      <Background>
+        <div className="mb-4">
+          <button
+            type="button"
+            className="borderOrange fontWait900 bgWhite text-gray-900 text-xs py-1 px-5 w-full rounded-lg hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          >
+            EXPLORE ON MAP
+          </button>
+        </div>
+      </Background>
 
-        {/* left side  */}
-        <aside className="bgWhite w-[20%] hide-scrollbar p-2 ml-[5rem] mt-[1rem] mr-[1px]" style={{ height: "60rem", overflow: "auto" }}>
-          <Background>
-            <div>
-              <div className="flex">
-                <button type="button" class="borderOrange fontWait900 bgWhite fontSize12  p-2 w-full h-[2rem] py-1  px-5 me-2 mb-2  text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">EXPLORE ON MAP</button>
-              </div>
-            </div>
-          </Background>
-          <div className="" style={{marginBottom:"1rem"}}><TextField style={{height:"3rem"}} id="outlined-basic" label="search for locality/hotel name" variant="outlined" className="w-full" /></div>
-          <FilterComp det={collections} />
-          <FilterComp det={Categories} />
-          <FilterComp det={hotelFacility} />
-          <FilterComp det={accomidationType} />
-          <FilterComp det={checkInFeautures} />
+      <div className="mb-4">
+        <TextField
+          style={{ height: "3rem" }}
+          id="outlined-basic"
+          label="search for locality/hotel name"
+          variant="outlined"
+          className="w-full"
+        />
+      </div>
 
-        </aside>
+      <FilterComp det={collections} />
+      <FilterComp det={Categories} />
+      <FilterComp det={hotelFacility} />
+      <FilterComp det={accomidationType} />
+      <FilterComp det={checkInFeautures} />
+    </aside>
 
+    {/* right side */}
+    <section
+      className="md:w-3/4 w-full hide-scrollbar p-4 mt-4 md:mt-4 md:mr-20 overflow-auto"
+      style={{ maxHeight: "60rem" }}
+    >
+      <div>
+        <div className="text-xs mb-2">
+          <span>Home &gt; Hotels more in Goa</span>
+        </div>
 
-        {/* right side */}
-        <section className=" w-[80%] hide-scrollbar p-2 mt-[1rem] mr-[5rem]" style={{ height: "60rem", overflow: "auto" }}>
-          <div className="">
-            <div>
-              <div className="fontSize12"><span>Home > Hotels more in Goa</span></div>
-              <div className=" py-3 flex">
-                <h3 className="ml-2 mr-3 fontSize24">3128 Properties in Goa  </h3>
-                <button type="button" class="borderOrange bgWhite align-center h-[2rem]  px-5 me-2 mb-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Explore travel tips-></button>
-              </div>
-            </div>
-            <div className="flex bgWhite justify-around items-center mb-3 py-2 ">
-              <div className="flex items-center justify-between  fontWait900">
-                <span>SORT BY</span>
-                <button type="button" class="borderOrange bgWhite align-center  px-2 me-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Popular</button>
-              </div>
-              <div><span className="fontWait900">User Rating </span><span>(Highest first)</span></div>
-              <div><span className="fontWait900">Price</span> <span>(Highest first)</span></div>
-              <div><span className="fontWait900">Price</span> <span>(lowest first)</span></div>
-            </div>
+        <div className="py-3 flex flex-col sm:flex-row items-start sm:items-center mb-4">
+          <h3 className="font-bold text-xl mb-2 sm:mb-0 sm:mr-4">
+            3128 Properties in Goa
+          </h3>
+          <button
+            type="button"
+            className="borderOrange bgWhite h-8 px-5 text-sm font-medium text-gray-900 rounded-lg hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          >
+            Explore travel tips-&gt;
+          </button>
+        </div>
 
-            {data.map((details)=>{
-              console.log(details)
-              return <div className="flex border-2 bgWhite mb-3 cardHover">
-              <div id="carouselExampleControls" class="carousel slide w-25 h-25 m-2 p-2" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active" onClick= {()=>navigate("/productDetails")}>
-                    <img src={details.best_image} class="d-block w-100" alt="..." style={{height: "12rem"}}/>
-                  </div>
-                  {/* <div class="carousel-item">
-                    <img src="https://play-lh.googleusercontent.com/R3oQgp4euQlsXUDaYuMes3K8JGtifoD-wrvHkq6q0xTYcROLiuYPqz3OBTZVWlrTq_k" class="d-block w-100" alt="..." />
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://cdn.pixabay.com/photo/2023/02/24/07/40/spiderman-7810368_1280.png" class="d-block w-100" alt="..." />
-                  </div> */}
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-
-                <div className="flex mt-2 spacing-1"> 
-                  <div><img src={details.hotel_images[0].url} class="d-block w-100" alt="..." /></div>
-                  <div><img src={details.hotel_images[1].url} class="d-block w-100" alt="..." /></div>
-                  <div><img src={details.hotel_images[2].url} class="d-block w-100" alt="..." /></div>
-                  <div><img src={details.hotel_images[3].url} class="d-block w-100" alt="..." /></div>
-                </div>
-                
-              </div>
- 
-              <div className="m-2 p-2 w-50">
-                <div>
-                  <p className={trimToggle ? "fontSize24": "trimText fontSize24"} onClick= {()=>navigate("/productDetails")}>{details.alternate_name} </p>
-                <button className="ColorOrange" onClick={()=>setTrimToggle(!trimToggle)}>{ trimToggle ? "Read less..." : "Read more..."}</button>
-                </div>
-                
-                <h3>*****</h3>
-                <p><a href="">Colaungut</a>1.8 km drive to Calangute Beach</p>
-                <button type="button" class="borderOrange bgWhite align-center h-[2rem]  px-3 me-2 mb-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Couple friendly</button>
-                <p className="fontSize12">Ideal spot near Calangute beach, Great breakfast buffet with live music, Cozy wooden cottages</p>
-              </div>
-
-              <div className="m-2 p-3 alignEnd">
-                <div>
-                  <h6 className="fontWait900 ColorOrange" style={{lineHeight: "0rem"}}>Very Good 4.0</h6>
-                  <p>(7782 Ratings)</p>
-                </div>
-                <div>
-                  <p style={{lineHeight: "0rem"}}><del>5,066</del></p>
-                  <h5 style={{lineHeight: "0rem"}}>2615</h5>
-                  <p className="fontSize12">+ ₹ 628 taxes & fees</p>
-                  <p className="fontSize12">Per Night</p>
-                </div>
-                <div>
-                  <p className="fontSize12 ColorOrange" onClick={()=>navigate("/login")}>Login to Book Now & Pay Later!</p>
-                </div>
-                <div>
-                  <button  onClick={()=>navigate("/productDetails")} type="button" class="borderOrange bgWhite align-center h-[2rem]  px-3 me-2 mb-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">More Details</button>
-                </div>
-              </div>
-            </div>
-            })}
+        <div className="flex flex-wrap bgWhite justify-around items-center mb-3 py-2 text-sm font-semibold">
+          <div className="flex items-center space-x-2 fontWait900">
+            <span>SORT BY</span>
+            <button
+              type="button"
+              className="borderOrange bgWhite px-2 text-gray-900 rounded-lg hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
+              Popular
+            </button>
           </div>
-        </section>
-      </section>
-    </div>
+          <div>
+            <span className="fontWait900">User Rating </span>
+            <span>(Highest first)</span>
+          </div>
+          <div>
+            <span className="fontWait900">Price</span>
+            <span>(Highest first)</span>
+          </div>
+          <div>
+            <span className="fontWait900">Price</span>
+            <span>(Lowest first)</span>
+          </div>
+        </div>
+
+        {data.map((details) => {
+          return (
+            <div
+              key={details.id || details.alternate_name}
+              className="flex flex-col sm:flex-row border-2 bgWhite mb-3 hover:shadow-lg transition-shadow duration-200 rounded-lg"
+            >
+              {/* Carousel */}
+              <div className="w-full sm:w-1/4 p-2">
+                {/* NOTE: Bootstrap carousel classes won't work well with Tailwind.
+                    Consider using a React carousel library like react-slick or swiper */}
+                <div
+                  onClick={() => navigate("/productDetails")}
+                  className="cursor-pointer"
+                >
+                  <img
+                    src={details.best_image}
+                    alt={details.alternate_name || "Hotel image"}
+                    className="w-full h-48 object-cover rounded-md"
+                  />
+                </div>
+                <div className="flex mt-2 space-x-2 overflow-x-auto">
+                  {details.hotel_images.slice(0, 4).map((img, i) => (
+                    <img
+                      key={i}
+                      src={img.url}
+                      alt={`Hotel thumb ${i + 1}`}
+                      className="w-16 h-16 object-cover rounded-md flex-shrink-0"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="flex flex-col justify-between p-4 sm:w-1/2">
+                <div>
+                  <p
+                    className={trimToggle ? "text-xl font-bold" : "line-clamp-3 text-xl font-bold"}
+                    onClick={() => navigate("/productDetails")}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {details.alternate_name}
+                  </p>
+                  <button
+                    className="text-orange-500 underline mt-1"
+                    onClick={() => setTrimToggle(!trimToggle)}
+                  >
+                    {trimToggle ? "Read less..." : "Read more..."}
+                  </button>
+                </div>
+                <h3 className="text-yellow-500">*****</h3>
+                <p>
+                  <a href="#" className="underline text-blue-600 hover:text-blue-800">
+                    Colaungut
+                  </a>{" "}
+                  1.8 km drive to Calangute Beach
+                </p>
+                <button
+                  type="button"
+                  className="borderOrange bgWhite h-8 px-3 mt-2 text-sm font-medium text-gray-900 rounded-lg hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                >
+                  Couple friendly
+                </button>
+                <p className="text-xs mt-2">
+                  Ideal spot near Calangute beach, Great breakfast buffet with live music, Cozy wooden cottages
+                </p>
+              </div>
+
+              {/* Booking Info */}
+              <div className="flex flex-col justify-between p-4 sm:w-1/4 text-right">
+                <div>
+                  <h6 className="fontWait900 text-orange-500 leading-tight">
+                    Very Good 4.0
+                  </h6>
+                  <p className="text-xs">(7782 Ratings)</p>
+                </div>
+                <div>
+                  <p className="line-through text-xs">5,066</p>
+                  <h5 className="text-lg font-semibold">2,615</h5>
+                  <p className="text-xs">+ ₹ 628 taxes & fees</p>
+                  <p className="text-xs">Per Night</p>
+                </div>
+                <div>
+                  <p
+                    className="text-xs text-orange-500 cursor-pointer underline"
+                    onClick={() => navigate("/login")}
+                  >
+                    Login to Book Now & Pay Later!
+                  </p>
+                </div>
+                <div>
+                  <button
+                    onClick={() => navigate("/productDetails")}
+                    type="button"
+                    className="borderOrange bgWhite h-8 px-3 mt-2 text-sm font-medium text-gray-900 rounded-lg hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                  >
+                    More Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  </section>
+</div>
+
   )
 }
 
