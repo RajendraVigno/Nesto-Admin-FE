@@ -16,40 +16,41 @@ import BookingSummary from './pages/bookingSummary/bookingSummary';
 import PaymentSummary from './pages/bookingSummary/paymentSummary';
 import Confirmation from './pages/confirmation/confirmation';
 
-let router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Landing />
-  },
-  {
-    path: "/login",
-    element: <LoginComp />
-  },
-  {
-    path: "/products",
-    element: <Products />
-  },
-  {
-    path: "/productdetails",
-    element: <ProductDetails /> 
-  },
-  {
-    path: "/bookingSummary",
-    element: <BookingSummary /> 
-  },
-  {
-    path: "/paymentSummary",
-    element: <PaymentSummary /> 
-  },
-  {
-    path: "/confirmation",
-    element: <Confirmation /> 
-  }
-]);
+// let router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Landing />
+//   },
+//   {
+//     path: "/login",
+//     element: <LoginComp />
+//   },
+//   {
+//     path: "/products",
+//     element: <Products />
+//   },
+//   {
+//     path: "/productdetails",
+//     element: <ProductDetails /> 
+//   },
+//   {
+//     path: "/bookingSummary",
+//     element: <BookingSummary /> 
+//   },
+//   {
+//     path: "/paymentSummary",
+//     element: <PaymentSummary /> 
+//   },
+//   {
+//     path: "/confirmation",
+//     element: <Confirmation /> 
+//   }
+// ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <RouterProvider router={router} />
+    // <RouterProvider router={router} />
+    <App />
 );
 
 // If you want to start measuring performance in your app, pass a function
