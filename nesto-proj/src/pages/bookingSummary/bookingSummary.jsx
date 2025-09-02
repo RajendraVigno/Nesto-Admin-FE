@@ -1,8 +1,14 @@
 import React from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
+import { useGetBookingDetailsQuery } from '../../services/bookingSummary.api';
+
 const BookingSummary = () => {
+  
+  const { data } = useGetBookingDetailsQuery()
   const navigate = useNavigate()
+
   return (
     <div className="container mx-auto px-4">
       <div className="border border-2 p-2 mb-4">

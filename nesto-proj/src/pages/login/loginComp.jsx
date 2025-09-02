@@ -1,11 +1,18 @@
 import { useState } from "react"
 import { useFormik } from 'formik';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
+import styled from 'styled-components';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+
+import { useGetloginDataQuery, useUserLoginDetailsMutation } from "../../services/login.api";
+
 const LoginComp = () => {
+
+  const {data} = useGetloginDataQuery()
+  const [loginDetailsFun] = useUserLoginDetailsMutation()
   const navigate = useNavigate()
   const formik = useFormik({
     initialValues: {
@@ -15,9 +22,8 @@ const LoginComp = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
-
-
   const [] = useState()
+  
   return (
     <Background>
       {/* Header Section */}

@@ -1,9 +1,16 @@
 import React from 'react';
+
 import Dropdown from './dropdown';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
+import { useGetConfirmationDetailsQuery } from '../../services/confirmation.api';
+
 const Confirmation = () => {
+
+    const { data } = useGetConfirmationDetailsQuery()
+
     return (
         <div className="max-w-7xl mx-auto">
             <header className="border-2 border-gray-300 flex justify-between items-center p-2">

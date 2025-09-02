@@ -1,14 +1,21 @@
-import { faCircleExclamation, faLocationDot } from "@fortawesome/free-solid-svg-icons"
 import Header from "../header/header"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSquareCheck } from "@fortawesome/free-regular-svg-icons"
+import { faCircleExclamation, faLocationDot } from "@fortawesome/free-solid-svg-icons"
+
 import { useNavigate } from "react-router-dom"
 
+import { useGetProductDetailsQuery } from "../../services/productDetails.api"
+
 const ProductDetails = () => {
+
+    const { data } = useGetProductDetailsQuery()
     const navigate = useNavigate()
+
     return (
         <div style={{ fontFamily: "Inter, sans-serif" }}>
-            <Header />
+            <Header path={{ path: "/login" }} />
             <div id="carouselExample" style={{ overflow: "hidden" }} class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active d-flex h-[25rem]">
@@ -32,14 +39,14 @@ const ProductDetails = () => {
                 </button>
             </div>
             <section className="flex">
-                <aside className="w-[60%] hide-scrollbar m-2 p-2" style={{height: "50rem", overflow: "auto"}}>
+                <aside className="w-[60%] hide-scrollbar m-2 p-2" style={{ height: "50rem", overflow: "auto" }}>
                     <div className="flex justify-around">
                         <div>
                             <h3 className="fontSize24">Hotel O Ss Delight</h3>
                             <p className="">Srivari Plaza, Aphb Colony, Moula-ali, Meerpet, Hyderabad <br />5.0·Check-in rating Delightful experience</p>
                         </div>
                         <div className="">
-                            <h4 className="bgPeach" style={{width: "5rem", borderRadius: "2rem", textAlign: "center"}}>3.8*</h4>
+                            <h4 className="bgPeach" style={{ width: "5rem", borderRadius: "2rem", textAlign: "center" }}>3.8*</h4>
                             <p>22Ratings</p>
                         </div>
                     </div>
@@ -180,7 +187,7 @@ const ProductDetails = () => {
                     <div className=" ml-[3rem]">
                         <div className="flex">
                             <FontAwesomeIcon icon={faLocationDot} />
-                        <h2 className="fontWait900">What's nearBy?</h2>
+                            <h2 className="fontWait900">What's nearBy?</h2>
                         </div>
                         <div className="border-3">
                             <div className="ml-3 p-2">
@@ -217,14 +224,14 @@ const ProductDetails = () => {
                         </div>
                     </div>
                 </aside>
-                <aside className="w-[35%] border-2 hide-scrollbar" style={{height: "50rem", overflow: "auto"}}>
+                <aside className="w-[35%] border-2 hide-scrollbar" style={{ height: "50rem", overflow: "auto" }}>
                     <div className="">
                         <div className="bgOrange color-white-300 flex justify-around py-2">
                             <div className="flex">
-                                <FontAwesomeIcon icon={faCircleExclamation}/> 
+                                <FontAwesomeIcon icon={faCircleExclamation} />
                                 <p>LOG IN TO BOOK AT 756 + TAXES 179</p>
                             </div>
-                            <button onClick={()=>navigate("/login")} className="bgPeach" style={{width: "5rem", borderRadius: "2rem"}}>LOGIN</button>
+                            <button onClick={() => navigate("/login")} className="bgPeach" style={{ width: "5rem", borderRadius: "2rem" }}>LOGIN</button>
                         </div>
                         <div className="ml-5">
                             <div className="flex py-2 ml-5">
@@ -246,11 +253,11 @@ const ProductDetails = () => {
                                 <div>
                                     <p>WELCOME80 coupon applied</p>
                                     <button type="button" class="borderOrange h-[3rem] py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900  rounded-lg  hover:bg-gray-100  focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">ViewDetails</button>
-                                    
+
                                 </div>
                                 <div className="flex justify-between">
                                     <h6>-1424</h6>
-                                <FontAwesomeIcon icon={faSquareCheck}/>
+                                    <FontAwesomeIcon icon={faSquareCheck} />
                                 </div>
                             </div>
                             <hr class="w-50 h-1 mx-auto my-4 bg-gray-100 border-dotted-0 rounded-sm md:my-10 dark:bg-gray-1000" />
@@ -267,7 +274,7 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         <div className="flex w-100 justify-center">
-                            <button onClick={()=>navigate("/bookingSummary")} type="button" class="w-50 text-white bgOrange hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Continue to Book</button>
+                            <button onClick={() => navigate("/bookingSummary")} type="button" class="w-50 text-white bgOrange hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Continue to Book</button>
                         </div>
                         <div className="p-2 ml-[1.5rem]">
                             <p>700+ people booked this NESTO in last 6 months Cancellation Policy</p>
